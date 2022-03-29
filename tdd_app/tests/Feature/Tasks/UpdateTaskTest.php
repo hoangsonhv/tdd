@@ -47,8 +47,8 @@ class UpdateTaskTest extends TestCase
             'name' => null,
             'content' => $this->faker->text,
         ];
-        $response = $this->from($this->getEditTaskRoute($task->id), $dataUpdate)->put(route('tasks.update', $task->id), $dataUpdate);
-        $response->assertRedirect($this->getEditViewRedirect($task->id), $dataUpdate);
+        $response = $this->from($this->getEditTaskRoute($task->id))->put(route('tasks.update', $task->id), $dataUpdate);
+        $response->assertRedirect($this->getEditViewRedirect($task->id));
     }
 
     /** @test */
